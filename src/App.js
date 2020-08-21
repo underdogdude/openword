@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Splash from "./pages/Splash"
 import Catagory from "./pages/Catagory";
+import Word from "./pages/Word";
 
 
 class App extends Component {
@@ -35,6 +36,7 @@ class App extends Component {
                 <Route path="/catagory">
                     <Catagory />
                 </Route>
+                <Route path="/word/:catId" exact component={Word} />
               </Switch>
             </Router>
         );

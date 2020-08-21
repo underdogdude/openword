@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
+import {
+    Link
+} from "react-router-dom";
+
 
 class Catagory extends Component { 
     constructor(props) {
@@ -21,17 +25,26 @@ class Catagory extends Component {
 
     render(){
         return ( 
-            <div>
-                <h1 className="text-danger">bright</h1>
-                {
-                    this.state.catagories.map((item, idx) => { 
-                        return (
-                            <p key={idx}>
-                                {item.catagoryName}
-                            </p>
-                        )
-                    })
-                }
+            <div className="container">
+                <h1 className="text-white">
+                    Select Catagory.
+                </h1>
+                <div className="row">
+                    
+                    {
+                        this.state.catagories.map((item, idx) => { 
+                            return (
+                                
+                                <Link to={`word/${item.id}`} key={idx} className="m-3 p-3 bg-white">
+                                    <div className="col-md-4">
+                                        {item.catagoryName}
+                                    </div>
+                                </Link>
+                            )
+                        })
+                    }
+                </div>
+               
             </div>
         )
     }
