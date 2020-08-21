@@ -1,49 +1,44 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from "react-router-dom";
+import Splash from "./pages/Splash"
+import Catagory from "./pages/Catagory";
+
 
 class App extends Component {
+    // constructor(props) {
+    //   super(props);
+    //   this.state = {
+    //     data: []
+    //   };
+    // }
 
-  componentDidMount () {
-    let url = 'https://od-api.oxforddictionaries.com:443/api/v1/inflections/en/swimming';
-    
-    fetch(url, {
-      "method" : "GET",
-      "mode": "no-cors",
-      "headers": {
-        // "Accept": "application/json",
-        "app_id": "ec545a93",
-        "app_key": "1a159f521e2c50b83b7a4c008ff35e35"
-      }
-     }).then(response => {
-      console.log(response);
-     });
-  }
+    // componentDidMount() {
+    //   let url = "https://sheet.best/api/sheets/bf8b383a-e9d9-4a78-9dfd-46d997c3ec2e";
+    //   axios.get(url).then((res) => {
+    //    this.setState({
+    //      data: res.data
+    //    })
+    //   });
+    // }
 
-    // axios.get(url, {
-    //     "Accept": "application/json",
-    //     "app_id": "ec545a93",
-    //     "app_key": "1a159f521e2c50b83b7a4c008ff35e35"
-    // })
-  //     .then(res => {
-  //       console.log(res);
-  //     })
-  // }
-
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <Router>
+              <Switch>
+                <Route exact path="/" >
+                    <Splash />
+                </Route>
+                <Route path="/catagory">
+                    <Catagory />
+                </Route>
+              </Switch>
+            </Router>
+        );
+    }
 }
 
 export default App;
