@@ -12,6 +12,7 @@ class Word extends Component {
             shuffledWord: [],
             choice: [],
             currentWord: {},
+            currentAnswer: 0,
             currentIdx: 0,
             score: 0
         }
@@ -67,11 +68,9 @@ class Word extends Component {
     SetChoice = () => { 
         let arrChoice = [];
         let getRandom3Number = this.Random3Number();
-        console.log(getRandom3Number);
             getRandom3Number.push(this.state.currentIdx);
             // shuffle it 
             getRandom3Number.sort(() => Math.random() - 0.5);
-        
             getRandom3Number.map(idx => {
                 arrChoice.push(this.state.shuffledWord[idx]);
             });
@@ -90,17 +89,23 @@ class Word extends Component {
         });
     }
     
-    NextWord = () => { 
+    NextWord = (score) => { 
 
         if(this.state.currentIdx < (this.state.shuffledWord.length - 1)) { 
             this.setState({
-                currentIdx: this.state.currentIdx += 1
+                currentIdx: this.state.currentIdx += 1,
+                score: this.state.score + score
             }, () => { 
+                console.log(this.state.score, ' <= SCORE');
                 this.SetWord();
                 this.SetChoice();
             })
         }else { 
-            alert('END');
+            this.setState({
+                score: this.state.score + score
+            }, () => { 
+                alert(this.state.score);
+            })
         }
     }
 
@@ -123,11 +128,19 @@ class Word extends Component {
                     <WordComponent word={this.state.currentWord} currentIndex={this.state.currentIdx}/>
                     <div className="card-footer">
                         {this.state.choice.map((item, idx) => { 
-                            return (
-                                <button className="btn btn-info" key={idx} onClick={() => this.NextWord()}>
-                                    {item.wordTranslated}
-                                </button>
-                            )
+                            if( item.id === this.state.currentWord.id ) { 
+                                return (
+                                    <button className="btn btn-info" key={idx} onClick={() => this.NextWord(1)}>
+                                        {item.wordTranslated}
+                                    </button>
+                                )
+                            }else {
+                                return (
+                                    <button className="btn btn-info" key={idx} onClick={() => this.NextWord(0)}>
+                                        {item.wordTranslated}
+                                    </button>
+                                )
+                            }
                         })}
                     </div>
                 </div>
