@@ -4,9 +4,17 @@ body {
   background: #4c0175; 
   width: 100%;
   height: 100%;
+  background-image: url('./img/bg.png');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 html, body, #root, #root>div {
   height: 100%
+}
+
+.logo { 
+  width: 50%;
 }
 
