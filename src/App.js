@@ -30,12 +30,8 @@ class App extends Component {
         return (
             <Router>
               <Switch>
-                <Route exact path="/" >
-                    <Splash />
-                </Route>
-                <Route path="/catagory">
-                    <Catagory />
-                </Route>
+                <Route path="/" exact component={Splash} />
+                <Route path="/catagory" exact component={Catagory} />
                 <Route path="/word/:catId" exact component={Word} />
               </Switch>
             </Router>
