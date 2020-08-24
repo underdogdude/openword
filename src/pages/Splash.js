@@ -10,15 +10,15 @@ class Splash extends Component {
           <div className="container">
             
             <div className="d-flex align-items-center justify-content-center flex-column h-100">
-                <img src={Logo} className="logo" width={"100px"}/>
+                <img src={Logo} className="logo animate__animated animate__zoomInDown animate__slow" width={"100px"}/>
 
-                <h1 className="headline">
-                  HELLO WORD
-                </h1>
+                <div className="headline animate__animated animate__zoomInDown animate__slow">
+                  Practise Your Chinese Everyday.
+                </div>
 
                 <Link to="/catagory">
-                  <button className="btn btn-primary">
-                      START!  
+                  <button className="btn btn-primary btn__primary btn__start animate__animated animate__heartBeat animate__slow animate__infinite">
+                      PLAY!  
                   </button>
                 </Link>
             </div>
