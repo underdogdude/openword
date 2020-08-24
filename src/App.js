@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Switch
 } from "react-router-dom";
@@ -31,8 +31,8 @@ class App extends Component {
             <Router>
               <Switch>
                 <Route path="/" exact component={Splash} />
-                <Route path="/catagory" exact component={Catagory} />
-                <Route path="/word/:catId" exact component={Word} />
+                <Route path="/catagory" component={Catagory} />
+                <Route path="/word/:catId" component={Word} />
               </Switch>
             </Router>
         );
