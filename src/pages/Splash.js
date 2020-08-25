@@ -12,7 +12,7 @@ class Splash extends Component {
             <div className="d-flex align-items-center justify-content-center flex-column h-100">
                 <img src={Logo} className="logo animate__animated animate__zoomInDown animate__slow" width={"100px"}/>
 
-                <div className="headline animate__animated animate__zoomInDown animate__slow">
+                <div className="headline animate__animated animate__zoomInDown animate__slow text-center">
                   Practise Your Chinese Everyday.
                 </div>
 
