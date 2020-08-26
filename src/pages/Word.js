@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import WordComponent from "../components/WordComponent";
 import Swal from "sweetalert2";
+import Logo from "../img/logo.png";
+import WordLoader from "../components/WordLoader";
 
 class Word extends Component {
     constructor(props) {
@@ -16,6 +18,7 @@ class Word extends Component {
             currentAnswer: 0,
             currentIdx: 0,
             score: 0,
+            isLoading: true
         };
     }
 
@@ -29,11 +32,10 @@ class Word extends Component {
 
             this.setState(
                 {
-                    data: this.SplitIntoChunk(dataFiltered),
+                    data: this.SplitIntoChunk(dataFiltered)
                 },
                 () => {
-                    console.log(this.state);
-                    //  Do Something After Set state
+                    this.PopupChangeWordSet();
                 }
             );
         });
@@ -42,26 +44,30 @@ class Word extends Component {
     SplitIntoChunk = (dataFiltered) => {
         var myArray = [];
         // current size per set === 10
-        for(var i = 0; i < dataFiltered.length; i += 10) {
-          myArray.push(dataFiltered.slice(i, i+10));
+        for (var i = 0; i < dataFiltered.length; i += 10) {
+            myArray.push(dataFiltered.slice(i, i + 10));
         }
         return myArray;
-    }
+    };
 
     Random3Number = () => {
         var arr = [];
-        if(this.state.shuffledWord.length <= 3) {
+        if (this.state.shuffledWord.length <= 3) {
             while (arr.length < this.state.shuffledWord.length) {
-                var r = Math.floor(Math.random() * (this.state.shuffledWord.length));
+                let r = Math.floor(
+                    Math.random() * this.state.shuffledWord.length
+                );
                 if (arr.indexOf(r) === -1) {
                     arr.push(r);
                 }
             }
             return arr;
-        }else { 
+        } else {
             while (arr.length < 3) {
-                var r = Math.floor(Math.random() * (this.state.shuffledWord.length));
-                if(arr.indexOf(r) === -1 && r !== this.state.currentIdx){
+                let r = Math.floor(
+                    Math.random() * this.state.shuffledWord.length
+                );
+                if (arr.indexOf(r) === -1 && r !== this.state.currentIdx) {
                     arr.push(r);
                 }
             }
@@ -78,8 +84,8 @@ class Word extends Component {
     SetChoice = () => {
         let arrChoice = [];
         let getRandom3Number = this.Random3Number();
-        
-        if(getRandom3Number.indexOf(this.state.currentIdx) === -1) {
+
+        if (getRandom3Number.indexOf(this.state.currentIdx) === -1) {
             getRandom3Number.push(this.state.currentIdx);
         }
         // shuffle it
@@ -93,6 +99,39 @@ class Word extends Component {
         });
     };
 
+    PopupChangeWordSet = async () => {
+
+        let group = {};
+        this.state.data.map((item, idx) => {
+            group[idx] = "Group " + idx;
+        });
+        const { value: catID } = await Swal.fire({
+            title: "Select field validation",
+            input: "select",
+            inputOptions: group,
+            inputPlaceholder: "Please Select Group",
+            showCancelButton: false,
+            allowEscapeKey: false,
+            allowOutsideClick: false,
+            
+            inputValidator: (value) => {
+                return new Promise((resolve) => {
+                    if (value === '') {
+                        resolve('Please select value')
+                    } else {
+                        resolve()
+                    }
+                });
+            },
+        });
+        if (catID) {
+            this.ChangeWordSet(catID);
+            this.setState({
+                isLoading: false
+            })
+        }
+    };
+
     ChangeWordSet = (idx) => {
         this.setState(
             {
@@ -100,7 +139,7 @@ class Word extends Component {
                     () => Math.random() - 0.5
                 ),
                 currentIdx: 0,
-                currentSet: idx
+                currentSet: idx,
             },
             () => {
                 this.SetWord();
@@ -110,7 +149,6 @@ class Word extends Component {
     };
 
     NextWord = (score) => {
-
         if (this.state.currentIdx < this.state.shuffledWord.length - 1) {
             this.setState(
                 {
@@ -136,14 +174,13 @@ class Word extends Component {
                         confirmButtonColor: "#3085d6",
                         cancelButtonColor: "#d33",
                         confirmButtonText: "Yes, delete it!",
-                        allowEscapeKey : false,
+                        allowEscapeKey: false,
                         allowOutsideClick: false
                     }).then((result) => {
                         console.log(result);
                         if (result.isConfirmed) {
-
-                            this.props.history.push('/catagory')
-                        }else { 
+                            this.props.history.push("/catagory");
+                        } else {
                             this.ChangeWordSet(this.state.currentSet);
                         }
                     });
@@ -153,46 +190,72 @@ class Word extends Component {
     };
 
     render() {
+        console.log(this.state.data.length);
         return (
-            <div className="d-flex align-items-center justify-content-center flex-column">
-                {this.state.data.map((item, idx) => {
-                    return (
-                        <p key={idx} onClick={() => this.ChangeWordSet(idx)}>
-                            Group = {idx + 1}
-                        </p>
-                    );
-                })}
-                <h1 className="splash__title">WORD</h1>
-                <div className="card">
-                    <WordComponent
-                        word={this.state.currentWord}
-                        currentIndex={this.state.currentIdx}
-                    />
-                    <div className="card-footer">
-                        {this.state.choice.map((item, idx) => {
-                            if (item.id === this.state.currentWord.id) {
-                                return (
-                                    <button
-                                        className="btn btn-info"
-                                        key={idx}
-                                        onClick={() => this.NextWord(1)}
-                                    >
-                                        {item.wordTranslated}
-                                    </button>
-                                );
-                            } else {
-                                return (
-                                    <button
-                                        className="btn btn-info"
-                                        key={idx}
-                                        onClick={() => this.NextWord(0)}
-                                    >
-                                        {item.wordTranslated}
-                                    </button>
-                                );
-                            }
-                        })}
-                    </div>
+            <div className="container">
+                <div className="text-right">
+                    {/* TODO: ADD BUTTOn */}
+                    <button className="btn btn-primary" onClick={() => this.PopupChangeWordSet()}>
+                        Change Group
+                    </button>
+                </div>
+                <div className="d-flex align-items-center justify-content-center flex-column">
+                    {
+                        this.state.isLoading 
+                        ? ""
+                        :<h6 className="splash__title text-white font-weight-light mt-3">
+                            Group { this.state.currentSet }
+                        </h6>
+                    }
+                    
+                    {
+                        this.state.isLoading
+                        ? <div className="mt-5"><WordLoader/></div>
+                        : <div className="card word__card">
+                            <div className="card-header d-flex align-items-center">
+                                <span className="number__indicate">
+                                    { this.state.currentIdx+1 } / {this.state.data[this.state.currentSet].length}
+                                </span>
+                                <div className="progress ml-2">
+                                    <div className="progress-bar"
+                                        style={{width: ((this.state.currentIdx+1)/this.state.data[this.state.currentSet].length) * 100 +`%`}}
+                                        role="progressbar"
+                                        aria-valuenow={ ((this.state.currentIdx+1)/this.state.data[this.state.currentSet].length) * 100 } 
+                                        aria-valuemin={"0"} 
+                                        aria-valuemax={"100"}></div>
+                                </div>
+                            </div>
+                            <WordComponent
+                                word={this.state.currentWord}
+                                currentIndex={this.state.currentIdx}
+                            />
+                            <div className="card-footer">
+                                {this.state.choice.map((item, idx) => {
+                                    if (item.id === this.state.currentWord.id) {
+                                        return (
+                                            <button
+                                                className="btn btn-info"
+                                                key={idx}
+                                                onClick={() => this.NextWord(1)}
+                                            >
+                                                {item.wordTranslated}
+                                            </button>
+                                        );
+                                    } else {
+                                        return (
+                                            <button
+                                                className="btn btn-info"
+                                                key={idx}
+                                                onClick={() => this.NextWord(0)}
+                                            >
+                                                {item.wordTranslated}
+                                            </button>
+                                        );
+                                    }
+                                })}
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
         );
