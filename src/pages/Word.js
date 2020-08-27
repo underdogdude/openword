@@ -3,6 +3,8 @@ import axios from "axios";
 import WordComponent from "../components/WordComponent";
 import Swal from "sweetalert2";
 import Logo from "../img/logo.png";
+import BtnHome from "../img/logo-home.png";
+import BtnWordSet from "../img/logo-change.png";
 import WordLoader from "../components/WordLoader";
 
 class Word extends Component {
@@ -106,14 +108,17 @@ class Word extends Component {
             group[idx] = "Group " + idx;
         });
         const { value: catID } = await Swal.fire({
-            title: "Select field validation",
+            title: "Select Word Group",
             input: "select",
             inputOptions: group,
-            inputPlaceholder: "Please Select Group",
+            inputPlaceholder: "Please Select",
             showCancelButton: false,
             allowEscapeKey: false,
             allowOutsideClick: false,
-            
+            customClass: {
+                title: 'type__sweetalert',
+                confirmButton: 'btn__sweetalert-confirm',
+            },
             inputValidator: (value) => {
                 return new Promise((resolve) => {
                     if (value === '') {
@@ -171,11 +176,15 @@ class Word extends Component {
                         text: this.state.score,
                         icon: "warning",
                         showCancelButton: true,
-                        confirmButtonColor: "#3085d6",
-                        cancelButtonColor: "#d33",
-                        confirmButtonText: "Yes, delete it!",
+                        confirmButtonText: `<i className="fa fa-thumbs-o-up"></i> Text`,
+                        cancelButtonText: "TRY AGAIN",
                         allowEscapeKey: false,
-                        allowOutsideClick: false
+                        allowOutsideClick: false,
+                        customClass: {
+                            title: 'type__sweetalert',
+                            confirmButton: 'btn__sweetalert-confirm',
+                            cancelButton: 'btn__sweetalert-cancel'
+                        },
                     }).then((result) => {
                         if (result.isConfirmed) {
                             this.props.history.push("/catagory");
@@ -188,23 +197,50 @@ class Word extends Component {
         }
     };
 
+    BackToHome () {
+        Swal.fire({
+            title: "Are you sure to leave this page?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Continue",
+            allowEscapeKey: false,
+            allowOutsideClick: false,
+            customClass: {
+                title: 'type__sweetalert',
+                confirmButton: 'btn__sweetalert-confirm',
+                cancelButton: 'btn__sweetalert-cancel'
+            },
+        }).then((result) => {
+            if (result.isConfirmed) {
+                this.props.history.push("/catagory");
+            } 
+        });
+    }
+
     render() {
 
         return (
-            <div className="container">
-                <div className="text-right">
-                    {/* TODO: ADD BUTTOn */}
-                    <button className="btn btn-primary" onClick={() => this.PopupChangeWordSet()}>
-                        Change Group
-                    </button>
-                </div>
+            <div className="container custom__container">
                 <div className="d-flex align-items-center justify-content-center flex-column">
                     {
                         this.state.isLoading 
                         ? ""
-                        :<h6 className="splash__title text-white font-weight-light mt-3">
-                            Group { this.state.currentSet }
-                        </h6>
+                        :<div className="d-flex justify-content-between w-100 mt-4 mb-3 px-2">
+                            <h5 className="splash__title text-white mt-3">
+                                Group { this.state.currentSet }
+                            </h5>
+                            <div className="d-flex">
+                                {/* TODO: ADD BUTTOn */}
+                                <div onClick={() => this.BackToHome()} 
+                                className="animate__animated animate__pulse btn__img btn__home">
+                                    <img alt="Change wordset button" src={BtnHome} />
+                                </div>
+                                <div onClick={() => this.PopupChangeWordSet()} 
+                                className="animate__animated animate__pulse btn__img btn__changeword mr-0">
+                                    <img alt="Change wordset button" src={BtnWordSet} />
+                                </div>
+                            </div>
+                        </div>
                     }
                     
                     {

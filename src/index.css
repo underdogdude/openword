@@ -35,6 +35,10 @@ body,
   font-family: 'Noto Serif TC', serif;
 }
 
+.custom__container { 
+    max-width: 840px;
+}
+
 .headline {
     background: #4c0175;
     color: #ab31fc;
@@ -55,7 +59,40 @@ body,
     border-color: #ff521d;
     border-radius: 20px;
 }
+.btn__img {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-left: 6px;
+    margin-right: 6px;
+    cursor: pointer;
+    font-size: 8px;
+    color: white;
+}
+.btn__img img {
+    max-width: 50px; 
+}
 
+.swal2-styled.swal2-confirm.btn__sweetalert-confirm { 
+    background-color: #2cb055;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 300;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.swal2-styled.swal2-cancel.btn__sweetalert-cancel { 
+    background-color: #d92c33;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 300;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.swal2-title.type__sweetalert { 
+    font-weight: 400;
+    font-size: 20px;
+}
 .card__catagory {
     background: #5c0290;
     border-radius: 10px;
@@ -80,6 +117,7 @@ a:hover {
     border: none;
     color: white;
     margin-bottom: 30px;
+    width: 100%;
 }
 .word__card .card-header {
     background-color: transparent;
