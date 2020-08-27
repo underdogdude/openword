@@ -145,6 +145,9 @@ class Word extends Component {
                 ),
                 currentIdx: 0,
                 currentSet: idx,
+                currentAnswer: 0,
+                score: 0,
+
             },
             () => {
                 this.SetWord();
@@ -171,9 +174,10 @@ class Word extends Component {
                     score: this.state.score + score,
                 },
                 () => {
+                    console.log(this.state.score,'score');
                     Swal.fire({
                         title: "Your Score",
-                        text: this.state.score,
+                        text: this.state.score.toString(),
                         icon: "warning",
                         showCancelButton: true,
                         confirmButtonText: `HOME`,
