@@ -177,7 +177,6 @@ class Word extends Component {
                         allowEscapeKey: false,
                         allowOutsideClick: false
                     }).then((result) => {
-                        console.log(result);
                         if (result.isConfirmed) {
                             this.props.history.push("/catagory");
                         } else {
@@ -190,7 +189,7 @@ class Word extends Component {
     };
 
     render() {
-        console.log(this.state.data.length);
+
         return (
             <div className="container">
                 <div className="text-right">
