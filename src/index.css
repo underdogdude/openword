@@ -93,6 +93,10 @@ body,
     font-weight: 400;
     font-size: 20px;
 }
+.swal2-content.type__sweetalert-text { 
+    font-size: 40px;
+    color: #ff521f;
+}
 .card__catagory {
     background: #5c0290;
     border-radius: 10px;

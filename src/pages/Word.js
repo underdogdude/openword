@@ -176,12 +176,13 @@ class Word extends Component {
                         text: this.state.score,
                         icon: "warning",
                         showCancelButton: true,
-                        confirmButtonText: `<i className="fa fa-thumbs-o-up"></i> Text`,
+                        confirmButtonText: `HOME`,
                         cancelButtonText: "TRY AGAIN",
                         allowEscapeKey: false,
                         allowOutsideClick: false,
                         customClass: {
                             title: 'type__sweetalert',
+                            content: 'type__sweetalert-text',
                             confirmButton: 'btn__sweetalert-confirm',
                             cancelButton: 'btn__sweetalert-cancel'
                         },
