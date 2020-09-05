@@ -158,11 +158,14 @@ class Word extends Component {
 
     NextWord = (score) => {
         if(score) { 
+            alert('bite')
             Swal.fire({
                 icon: 'success',
                 title: 'CORRECT!',
                 showConfirmButton: false,
                 timer: 900
+            }).then(() => {
+                this.updateScore(score);
             });
         }else { 
             Swal.fire({
@@ -170,8 +173,13 @@ class Word extends Component {
                 title: 'WRONG!',
                 showConfirmButton: false,
                 timer: 900
+            }).then(() => { 
+                this.updateScore(score);
             });
         }
+    };
+
+    updateScore = (score) => { 
         if (this.state.currentIdx < this.state.shuffledWord.length - 1) {
             this.setState(
                 {
