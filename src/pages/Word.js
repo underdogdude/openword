@@ -28,6 +28,7 @@ class Word extends Component {
         let url =
             "https://v2-api.sheety.co/bc59d1975d4c4799f8cf90660fa16457/openword/words";
         axios.get(url).then((res) => {
+            console.log(res,'RE');
             let dataFiltered = res.data.words.filter((item) => {
                 return item.categoryId === this.state.catId;
             });
@@ -158,7 +159,6 @@ class Word extends Component {
 
     NextWord = (score) => {
         if(score) { 
-            alert('bite')
             Swal.fire({
                 icon: 'success',
                 title: 'CORRECT!',

@@ -19,7 +19,6 @@ class Catagory extends Component {
     componentDidMount() {
         let url = "https://v2-api.sheety.co/bc59d1975d4c4799f8cf90660fa16457/openword/catagories";
         axios.get(url).then((res) => {
-            console.log(res);
             this.setState({
                 catagories: res.data.catagories,
                 loading: true
@@ -63,7 +62,7 @@ class Catagory extends Component {
                                 {
                                     this.state.catagories.map((item, idx) => { 
                                         return (
-                                            <Link to={`word/${item.id}`} key={idx} className="col-md-4">
+                                            <Link to={`word/${item.categoryId}`} key={idx} className="col-md-4">
                                                 <div className="p-3 card__catagory">
                                                     <div className="row">
                                                         <div className="col-8">
