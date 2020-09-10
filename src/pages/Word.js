@@ -158,6 +158,9 @@ class Word extends Component {
     };
 
     NextWord = (score) => {
+
+        let stringCap = this.state.currentWord.wordTranslated.replace(/^./, this.state.currentWord.wordTranslated[0].toUpperCase());
+
         if(score) { 
             Swal.fire({
                 icon: 'success',
@@ -171,8 +174,9 @@ class Word extends Component {
             Swal.fire({
                 icon: 'error',
                 title: 'WRONG!',
-                showConfirmButton: false,
-                timer: 900
+                showConfirmButton: true,
+                text: `${this.state.currentWord.word}  (${this.state.currentWord.wordPinyin}) = ${ stringCap }`,
+
             }).then(() => { 
                 this.updateScore(score);
             });
