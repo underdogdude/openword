@@ -13,8 +13,8 @@ import Word from "./pages/Word";
 class App extends Component {
     render() {
         return (
-          <Router>
-              {/* <Switch> */}
+          <Router basename={process.env.REACT_APP_ROUTER_BASE || ''}>
+            {/* <Switch> */}
                 <Route exact path="/" component={Splash} />
                 <Route path="/catagory" component={Catagory} />
                 <Route path="/word/:catId" component={Word} />
