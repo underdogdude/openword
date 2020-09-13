@@ -16,17 +16,11 @@ class Splash extends Component {
                 <div className="headline animate__animated animate__zoomInDown animate__slow text-center">
                   Practise Your Chinese Everyday.
                 </div>
-
                 <Link to="/catagory">
-                  <button className="btn btn-primary btn__primary">
-                      PLAY!  
-                  </button>
-                </Link>
-                {/* <Link to="/catagory">
                   <button className="btn btn-primary btn__primary btn__start animate__animated animate__heartBeat animate__slow animate__infinite">
                       PLAY!  
                   </button>
-                </Link> */}
+                </Link>
             </div>
           </div>
         )

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {
-  HashRouter as Router,
-  // BrowserRouter as Router,
+  // HashRouter as Router,
+  BrowserRouter as Router,
   Route,
   Switch
 } from "react-router-dom";
@@ -14,11 +14,11 @@ class App extends Component {
     render() {
         return (
           <Router>
-              <Switch>
+              {/* <Switch> */}
                 <Route exact path="/" component={Splash} />
                 <Route path="/catagory" component={Catagory} />
                 <Route path="/word/:catId" component={Word} />
-              </Switch>
+              {/* </Switch> */}
           </Router>
         );
     }
