@@ -5,6 +5,23 @@ import {
 import Logo from "../img/logo.png";
 
 class Splash extends Component { 
+
+    sendFlex() { 
+      liff.sendMessages([
+        {
+          type: 'text',
+          text: 'Hello, World!'
+        }
+      ])
+        .then(() => {
+          alert('message seng');
+        })
+        .catch((err) => {
+          console.log('error', err);
+          alert('error');
+        });
+    }
+
     render() { 
         return (
           <div className="container">
@@ -16,10 +33,12 @@ class Splash extends Component {
                   Practise Your Chinese Everyday.
                 </div>
                 <Link to="/catagory">
-                  <button className="btn btn-primary btn__primary btn__start animate__animated animate__heartBeat animate__slow animate__infinite">
+                  <button className="btn btn__primary btn__start animate__animated animate__heartBeat animate__slow animate__infinite">
                       PLAY!  
                   </button>
                 </Link>
+
+                <button onClick={() => this.sendFlex()}>SEND</button>
             </div>
           </div>
         )

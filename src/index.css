@@ -25,7 +25,9 @@ body,
 #root > div {
     height: 100%;
 }
-
+a:hover, a:active { 
+    background: #ff521d; 
+}
 .logo {
     width: 100%;
     max-width: 500px;
@@ -55,6 +57,13 @@ body,
     padding: 10px 50px;
 }
 .btn.btn__primary {
+    color: white;
+    background: #ff521d;
+    border-color: #ff521d;
+    border-radius: 20px;
+}
+.btn.btn__primary:hover,.btn.btn__primary:focus,.btn.btn__primary:active  {
+    color: white;
     background: #ff521d;
     border-color: #ff521d;
     border-radius: 20px;

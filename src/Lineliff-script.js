@@ -3,7 +3,6 @@ import liff from '@line/liff';
 var lineToken = '';
 function liffInit() {
     if (!liff.isInClient()) {
-        alert('isn"s in client');
         window.location = "https://line.me/R/ti/p/@pep2892m"
     }
     var liffId = '1654918729-EjBZQgb1';
@@ -14,7 +13,6 @@ function liffInit() {
         if ( lineToken != null ) {
             alert(lineToken);
             console.log('lineToken ', lineToken)
-            alert("FUCK LINE LIFF");
         }
         appInit();
     });
