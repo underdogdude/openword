@@ -114,7 +114,7 @@ class Word extends Component {
 
             previousDataLength += item.length;
         });
-        
+
         const { value: catID } = await Swal.fire({
             title: "Select Word Group",
             input: "select",
@@ -269,7 +269,7 @@ class Word extends Component {
                                 Group { this.state.currentSet }
                             </h5>
                             <div className="d-flex">
-                                {/* TODO: ADD BUTTOn */}
+                                
                                 <div onClick={() => this.BackToHome()} 
                                 className="animate__animated animate__pulse btn__img btn__home">
                                     <img alt="Change wordset button" src={BtnHome} />

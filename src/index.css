@@ -226,3 +226,16 @@ a:hover {
   color: white;
   transform: rotateY(180deg);
 }
+
+.btn__volumn { 
+    background-image: url("./img/logo-volumn.png");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+}

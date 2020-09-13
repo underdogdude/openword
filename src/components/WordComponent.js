@@ -16,11 +16,20 @@ class WordComponent extends Component {
 
     }
 
+    speakWord(word) { 
+        try { 
+            window.responsiveVoice.speak(word, "Chinese Taiwan Female", {pitch: 1});
+        }catch(err) { 
+            console.log(err);
+        }
+    }
+
     render() { 
         return (
             <div className="card-body">
-                <div className="flip-container" onClick={() => this.FlipCard()}>
-                    <div className="flip-card">
+                <div className="flip-container">
+                    <div onClick={() => this.speakWord(this.props.word.word) } value="Play" className="btn__volumn"></div>
+                    <div className="flip-card" onClick={() => this.FlipCard()}>
                         <div className="flip-card-inner"  style={{"transform": !this.state.isFliped ? "" : "rotateY(180deg)"}}>
                             <div className="flip-card-front">
                                 <h1 className="noselect typo__chinese font-weight-bold">
