@@ -14,6 +14,7 @@ function liffInit() {
         if ( lineToken != null ) {
             alert(lineToken);
             console.log('lineToken ', lineToken)
+            alert("FUCK LINE LIFF");
         }
         appInit();
     });
