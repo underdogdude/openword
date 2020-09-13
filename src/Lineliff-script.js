@@ -3,7 +3,7 @@ import liff from '@line/liff';
 var lineToken = '';
 function liffInit() {
     if (!liff.isInClient()) {
-        window.location = "https://line.me/R/ti/p/@pep2892m"
+        // window.location = "https://line.me/R/ti/p/@pep2892m"
     }
     var liffId = '1654918729-EjBZQgb1';
     liff.init({
@@ -20,7 +20,7 @@ function liffInit() {
 
 function appInit() {
     if (!liff.isLoggedIn() && !liff.isInClient()) {
-        liff.login();
+        // liff.login();
     } else {
       liff.getProfile().then(async (profile) => {
         alert(JSON.stringify(profile));

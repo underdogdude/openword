@@ -3,8 +3,7 @@ import {
     Link
 } from "react-router-dom";
 import Logo from "../img/logo.png";
-
-const liff = window.liff;  
+import liff from "@line/liff";
 
 class Splash extends Component { 
 
@@ -27,6 +26,7 @@ class Splash extends Component {
     render() { 
         return (
           <div className="container">
+                <button onClick={() => this.sendFlex()} className="btn btn-lg btn-primary">SEND</button>
             
             <div className="d-flex align-items-center justify-content-center flex-column h-100">
                 <img src={Logo} className="logo animate__animated animate__zoomInDown animate__slow" width={"100px"}/>
@@ -40,7 +40,6 @@ class Splash extends Component {
                   </button>
                 </Link>
 
-                <button onClick={() => this.sendFlex()}>SEND</button>
             </div>
           </div>
         )
