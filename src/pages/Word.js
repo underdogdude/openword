@@ -110,7 +110,7 @@ class Word extends Component {
         this.state.data.map((item, idx) => {
             let fromNumber = previousDataLength;
             let toNumber = previousDataLength + (item.length - 1);
-            group[idx] = "Words " + fromNumber + "-" + toNumber;
+            group[idx] = "Words: " + fromNumber + "-" + toNumber;
 
             previousDataLength += item.length;
         });
@@ -126,6 +126,7 @@ class Word extends Component {
             customClass: {
                 title: 'type__sweetalert',
                 confirmButton: 'btn__sweetalert-confirm',
+                input: 'ml-2 mr-2 w-100',
             },
             inputValidator: (value) => {
                 return new Promise((resolve) => {
