@@ -3,6 +3,7 @@ import {
     Link
 } from "react-router-dom";
 import Logo from "../img/logo.png";
+import "../Lineliff-script.js";
 
 class Splash extends Component { 
     render() { 
