@@ -11,9 +11,9 @@ import Word from "./pages/Word";
 // import "../Lineliff-script.js";
 
 class App extends Component {
-    render() {
+    render(){
         return (
-          <Router basename={process.env.REACT_APP_ROUTER_BASE || ''}>
+          <Router basename={process.env.PUBLIC_URL || ''}>
             {/* <Switch> */}
                 <Route exact path="/" component={Splash} />
                 <Route path="/catagory" component={Catagory} />
