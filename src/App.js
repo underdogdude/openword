@@ -13,7 +13,7 @@ import Word from "./pages/Word";
 class App extends Component {
     render() {
         return (
-            <BrowserRouter basename={process.env.PUBLIC_URL}>
+            <BrowserRouter>
               <Switch>
                 <Route path="/" exact component={Splash} />
                 <Route path="/catagory" component={Catagory} />
