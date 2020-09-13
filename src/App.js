@@ -4,7 +4,6 @@ import {
   Route,
   Switch,
   BrowserRouter,
-  withRouter
 } from "react-router-dom";
 import Splash from "./pages/Splash"
 import Catagory from "./pages/Catagory";
@@ -16,9 +15,9 @@ class App extends Component {
         return (
             <BrowserRouter>
               <Switch>
-                <Route path="/" exact component={withRouter(Splash)} />
-                <Route path="/catagory" component={withRouter(Catagory)} />
-                <Route path="/word/:catId" component={withRouter(Word)} />
+                <Route exact path="/" component={Splash} />
+                <Route path="/catagory" component={Catagory} />
+                <Route path="/word/:catId" component={Word} />
               </Switch>
             </BrowserRouter>
         );
