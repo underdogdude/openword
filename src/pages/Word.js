@@ -6,6 +6,7 @@ import Logo from "../img/logo.png";
 import BtnHome from "../img/logo-home.png";
 import BtnWordSet from "../img/logo-change.png";
 import WordLoader from "../components/WordLoader";
+import liff from "@line/liff";
 
 class Word extends Component {
     constructor(props) {
@@ -255,6 +256,25 @@ class Word extends Component {
             } 
         });
     }
+
+    /*
+        TODO: ADD SCORE TO FLEX MESSAGE;
+    */
+    sendFlex() { 
+        liff.sendMessages([
+          {
+            type: 'text',
+            text: 'Hello, World!'
+          }
+        ])
+          .then(() => {
+            alert('message seng');
+          })
+          .catch((err) => {
+            console.log('error', err);
+            alert('error');
+          });
+      }
 
     render() {
 
