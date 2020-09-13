@@ -4,6 +4,8 @@ import {
 } from "react-router-dom";
 import Logo from "../img/logo.png";
 
+const liff = window.liff;  
+
 class Splash extends Component { 
 
     sendFlex() { 
