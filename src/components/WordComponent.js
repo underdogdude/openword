@@ -41,7 +41,7 @@ class WordComponent extends Component {
                             </div>
                             <div className="flip-card-back">
                                 <h1 className="noselect font-weight-light">
-                                    { this.props.word.wordPinyin }
+                                    { this.props.word.word_pinyin }
                                 </h1>
                             </div>
                         </div>

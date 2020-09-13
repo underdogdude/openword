@@ -25,12 +25,11 @@ class Word extends Component {
     }
 
     componentDidMount() {
-        let url =
-            "https://v2-api.sheety.co/bc59d1975d4c4799f8cf90660fa16457/openword/words";
+        let url = "https://sheetdb.io/api/v1/ilr5vf009vt6i?sheet=words";
         axios.get(url).then((res) => {
             console.log(res,'RE');
-            let dataFiltered = res.data.words.filter((item) => {
-                return item.categoryId === this.state.catId;
+            let dataFiltered = res.data.filter((item) => {
+                return item.category_id === this.state.catId;
             });
 
             this.setState(
@@ -167,7 +166,7 @@ class Word extends Component {
 
     NextWord = (score) => {
 
-        let stringCap = this.state.currentWord.wordTranslated.replace(/^./, this.state.currentWord.wordTranslated[0].toUpperCase());
+        let stringCap = this.state.currentWord.word_translated.replace(/^./, this.state.currentWord.word_translated[0].toUpperCase());
 
         if(score) { 
             Swal.fire({
@@ -183,7 +182,7 @@ class Word extends Component {
                 icon: 'error',
                 title: 'WRONG!',
                 showConfirmButton: true,
-                text: `${this.state.currentWord.word}  (${this.state.currentWord.wordPinyin}) = ${ stringCap }`,
+                text: `${this.state.currentWord.word}  (${this.state.currentWord.word_pinyin}) = ${ stringCap }`,
 
             }).then(() => { 
                 this.updateScore(score);
@@ -313,7 +312,7 @@ class Word extends Component {
                                                 key={idx}
                                                 onClick={() => this.NextWord(1)}
                                             >
-                                                {item.wordTranslated}
+                                                {item.word_translated}
                                             </button>
                                         );
                                     } else {
@@ -323,7 +322,7 @@ class Word extends Component {
                                                 key={idx}
                                                 onClick={() => this.NextWord(0)}
                                             >
-                                                {item.wordTranslated}
+                                                {item.word_translated}
                                             </button>
                                         );
                                     }

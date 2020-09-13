@@ -17,15 +17,15 @@ class Catagory extends Component {
     }
 
     componentDidMount() {
-        let url = "https://v2-api.sheety.co/bc59d1975d4c4799f8cf90660fa16457/openword/catagories";
+        let url = "https://sheetdb.io/api/v1/ilr5vf009vt6i?sheet=catagories";
         axios.get(url).then((res) => {
+            console.log(res, 'BITE');
             this.setState({
-                catagories: res.data.catagories,
+                catagories: res.data,
                 loading: true
             })
         });
     }
-
     render(){
         return ( 
             <div className="container mt-5 text-center">
@@ -62,14 +62,14 @@ class Catagory extends Component {
                                 {
                                     this.state.catagories.map((item, idx) => { 
                                         return (
-                                            <Link to={`word/${item.categoryId}`} key={idx} className="col-md-4">
+                                            <Link to={`word/${item.category_id}`} key={idx} className="col-md-4">
                                                 <div className="p-3 card__catagory">
                                                     <div className="row">
                                                         <div className="col-8">
                                                             <div className="text-left d-flex flex-column justify-content-between h-100">
-                                                                <h5>{item.catagoryName}</h5>
+                                                                <h5>{item.catagory_name}</h5>
                                                                 <span className="desc">
-                                                                    {item.wordTotal} WORDS
+                                                                    {item.word_total} WORDS
                                                                 </span>
                                                             </div>
                                                         </div>

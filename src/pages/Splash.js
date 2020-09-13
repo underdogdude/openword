@@ -6,7 +6,6 @@ import Logo from "../img/logo.png";
 
 class Splash extends Component { 
     render() { 
-      alert('render');
         return (
           <div className="container">
             
