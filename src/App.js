@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {
   // HashRouter as Router,
-  Router,
+  BrowserRouter as Router,
   Route,
   Switch
 } from "react-router-dom";
@@ -13,13 +13,13 @@ import Word from "./pages/Word";
 class App extends Component {
     render() {
         return (
-          // <Router history={history}>
+          <Router>
               <Switch>
                 <Route exact path="/" component={Splash} />
                 <Route path="/catagory" component={Catagory} />
                 <Route path="/word/:catId" component={Word} />
               </Switch>
-            // </Router>
+          </Router>
         );
     }
 }
