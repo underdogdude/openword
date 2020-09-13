@@ -8,7 +8,7 @@ import {
 import Splash from "./pages/Splash"
 import Catagory from "./pages/Catagory";
 import Word from "./pages/Word";
-// import "../Lineliff-script.js";
+import "./Lineliff-script.js";
 
 class App extends Component {
     render(){
