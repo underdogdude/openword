@@ -7,6 +7,7 @@ import "../Lineliff-script.js";
 
 class Splash extends Component { 
     render() { 
+      alert('render');
         return (
           <div className="container">
             
@@ -18,10 +19,15 @@ class Splash extends Component {
                 </div>
 
                 <Link to="/catagory">
-                  <button className="btn btn-primary btn__primary btn__start animate__animated animate__heartBeat animate__slow animate__infinite">
+                  <button className="btn btn-primary btn__primary">
                       PLAY!  
                   </button>
                 </Link>
+                {/* <Link to="/catagory">
+                  <button className="btn btn-primary btn__primary btn__start animate__animated animate__heartBeat animate__slow animate__infinite">
+                      PLAY!  
+                  </button>
+                </Link> */}
             </div>
           </div>
         )

@@ -4,7 +4,7 @@ var lineToken = '';
 function liffInit() {
     if (!liff.isInClient()) {
         alert('isn"s in client');
-        window.location = "https://line.me/R/ti/p/@pep2892m"
+        // window.location = "https://line.me/R/ti/p/@pep2892m"
     }
     var liffId = '1654918729-EjBZQgb1';
     liff.init({
@@ -24,6 +24,7 @@ function appInit() {
         // liff.login();
     } else {
       liff.getProfile().then(async (profile) => {
+        alert(JSON.stringify(profile));
         console.log(profile , 'fucnink profile');
       });
     }
