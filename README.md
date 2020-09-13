@@ -4,6 +4,7 @@
     - Character ✅
     - Sound ⭕️ 
     - Meaning ✅
+    - Divide group and show detail ✅
  - Add words by curiousity [Depend on each users] ⭕️ 
  - Flash card feature 
    - Just show the word and swipe to see meaning. ⭕️ 

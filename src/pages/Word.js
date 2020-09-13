@@ -105,9 +105,16 @@ class Word extends Component {
     PopupChangeWordSet = async () => {
 
         let group = {};
+        let previousDataLength = 0;
+
         this.state.data.map((item, idx) => {
-            group[idx] = "Group " + idx;
+            let fromNumber = previousDataLength;
+            let toNumber = previousDataLength + (item.length - 1);
+            group[idx] = "Words " + fromNumber + "-" + toNumber;
+
+            previousDataLength += item.length;
         });
+        
         const { value: catID } = await Swal.fire({
             title: "Select Word Group",
             input: "select",
