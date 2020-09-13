@@ -15,9 +15,18 @@ class App extends Component {
         return (
           <Router>
               <Switch>
-                <Route exact path="/" component={Splash} />
-                <Route path="/catagory" component={Catagory} />
-                <Route path="/word/:catId" component={Word} />
+                <Route exact path="/">
+                  <Splash />
+                </Route>
+
+                <Route path="/catagory">
+                  <Catagory />
+                </Route>
+
+                <Route path="/word/:catId">
+                  <Word />
+                </Route>
+                
               </Switch>
           </Router>
         );
