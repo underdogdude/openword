@@ -39,7 +39,7 @@ class Catagory extends Component {
                     {   
                         !this.state.loading 
                         ? (
-                            <div className="row">
+                            <div className="row mb-5">
                                 <div className="col-md-4">
                                     <div className="p-3 card__catagory">
                                         <CaragoryLoader />
@@ -58,7 +58,7 @@ class Catagory extends Component {
                             </div>
                         ) 
                         : (
-                            <div className="row">
+                            <div className="row mb-5">
                                 {
                                     this.state.catagories.map((item, idx) => { 
                                         return (
