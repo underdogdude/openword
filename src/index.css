@@ -246,4 +246,10 @@ a:hover {
     top: 10px;
     left: 10px;
     z-index: 1;
+    transition: .3s all ease;
+}
+
+.btn__volumn:hover,.btn__volumn:active, .btn__volumn:focus { 
+    width: 38px;
+    height: 38px;
 }
