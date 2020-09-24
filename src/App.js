@@ -11,15 +11,18 @@ import Word from "./pages/Word";
 // import "./Lineliff-script.js";
 import liff from '@line/liff';
 
-let lineToken = "";
 
+let lineToken = "";
+alert('not fucking work');
 liff.init({ liffId: '1654918729-EjBZQgb1' }).then(() => {
   alert('inside then');
   lineToken = liff.getIDToken();
   alert(lineToken);
 });
-
 class App extends Component {
+
+
+
     render(){
         return (
           <Router basename={process.env.PUBLIC_URL || ''}>
