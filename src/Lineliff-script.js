@@ -2,6 +2,7 @@ import liff from '@line/liff';
 
 var lineToken = '';
 function liffInit() {
+    alert('LIFF INIT');
     if (!liff.isInClient()) {
         window.location = "https://line.me/R/ti/p/@pep2892m"
     }
@@ -18,6 +19,7 @@ function liffInit() {
 }
 
 function appInit() {
+    alert('APP INIT');
     if (!liff.isLoggedIn() && !liff.isInClient()) {
         liff.login();
     } else {
