@@ -227,11 +227,11 @@ class Word extends Component {
                         },
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            this.sendFlex();
-                            // this.props.history.push("/catagory");
+                            // this.sendFlex();
+                            this.props.history.push("/catagory");
                         } else {
-                            this.sendFlex();
-                            // this.ChangeWordSet(this.state.currentSet);
+                            // this.sendFlex();
+                            this.ChangeWordSet(this.state.currentSet);
                         }
                     });
                 }
