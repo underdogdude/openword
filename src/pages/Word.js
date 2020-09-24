@@ -273,6 +273,7 @@ class Word extends Component {
             alert('message seng');
           })
           .catch((err) => {
+              alert(JSON.stringify(err));
             console.log('error', err);
             alert('error');
           });
