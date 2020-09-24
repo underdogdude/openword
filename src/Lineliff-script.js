@@ -10,11 +10,6 @@ function liffInit() {
     alert(liffId);
     liff.init({
         liffId: liffId
-    }, () => { 
-        alert('in callback');
-        lineToken = liff.getIDToken();
-        alert(lineToken);
-        alert('after callback');
     }).then(() => {
         alert('in tgen');
         lineToken = liff.getIDToken();
