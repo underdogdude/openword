@@ -22,6 +22,7 @@ function appInit() {
         liff.login();
     } else {
       liff.getProfile().then(async (profile) => {
+        alert(JSON.stringify(profile))
         console.log(profile , 'fucnink profile');
       });
     }
