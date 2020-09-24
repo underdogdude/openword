@@ -227,8 +227,10 @@ class Word extends Component {
                         },
                     }).then((result) => {
                         if (result.isConfirmed) {
+                            this.sendFlex();
                             this.props.history.push("/catagory");
                         } else {
+                            this.sendFlex();
                             this.ChangeWordSet(this.state.currentSet);
                         }
                     });
@@ -264,7 +266,7 @@ class Word extends Component {
         liff.sendMessages([
           {
             type: 'text',
-            text: 'Hello, World!'
+            text: 'Your Score' + this.state.score
           }
         ])
           .then(() => {
