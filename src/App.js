@@ -14,11 +14,15 @@ import liff from '@line/liff';
 
 let lineToken = "";
 alert('not fucking work');
-liff.init({ liffId: '1654918729-EjBZQgb1' }).then(() => {
-  alert('inside then');
-  lineToken = liff.getIDToken();
-  alert(lineToken);
-});
+liff.init({ liffId: '1654918729-EjBZQgb1' })
+    .then(() => {
+      alert('inside then');
+      lineToken = liff.getIDToken();
+      alert(lineToken);
+    }).catch((err) => {
+      alert(JSON.stringify(err));
+  });
+
 class App extends Component {
 
 
