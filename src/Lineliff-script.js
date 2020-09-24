@@ -1,16 +1,16 @@
 import liff from '@line/liff';
-const liff = window.liff;  
+
 var lineToken = '';
 function liffInit() {
     alert('LIFF INITT');
-    if (!liff.isInClient()) {
-        window.location = "https://line.me/R/ti/p/@pep2892m"
-    }
+    // if (!liff.isInClient()) {
+    //     window.location = "https://line.me/R/ti/p/@pep2892m"
+    // }
     var liffId = '1654918729-EjBZQgb1';
     alert(liffId);
     liff.init({
         liffId: liffId
-    }).then(() => {
+    }, alert('call back')).then(() => {
         alert('in tgen');
         lineToken = liff.getIDToken();
         alert(lineToken);
