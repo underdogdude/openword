@@ -10,7 +10,9 @@ function liffInit() {
     liff.init({
         liffId: liffId || ""
     }).then(() => {
+        alert('in tgen');
         lineToken = liff.getIDToken();
+        alert(lineToken);
         if ( lineToken != null ) {
             console.log('lineToken ', lineToken)
         }
