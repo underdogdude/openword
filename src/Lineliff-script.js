@@ -29,7 +29,7 @@ function liffInit() {
 function appInit() {
     alert('APP INIT');
     if (!liff.isLoggedIn() && !liff.isInClient()) {
-        liff.login();
+        // liff.login();
     } else {
       liff.getProfile().then(async (profile) => {
         alert(JSON.stringify(profile))
