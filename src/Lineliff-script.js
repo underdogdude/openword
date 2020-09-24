@@ -1,5 +1,5 @@
 import liff from '@line/liff';
-
+const liff = window.liff;  
 var lineToken = '';
 function liffInit() {
     alert('LIFF INITT');
