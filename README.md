@@ -9,6 +9,6 @@
  - Flash card feature 
    - Just show the word and swipe to see meaning. ⭕️ 
    - 2 buttons "Do you remember this word?" / "Yes", "No". ⭕️
-- LINE features
+- LINE features (May be change)
    - Daily Word ⭕️ 
    - Push Score to Line Acc! ⭕️
