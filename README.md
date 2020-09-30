@@ -11,4 +11,5 @@
    - 2 buttons "Do you remember this word?" / "Yes", "No". ⭕️
 - LINE features (May be change)
    - Daily Word ⭕️ 
-   - Push Score to Line Acc! ⭕️
+   - Push Score to Line Acc to remind previous score! ⭕️
+ 
